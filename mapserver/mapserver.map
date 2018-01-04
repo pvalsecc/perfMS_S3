@@ -1,0 +1,31 @@
+MAP
+  IMAGETYPE      JPEG
+  EXTENT         -180 -90 180 90 # Geographic
+  SIZE           400 300
+  #SHAPEPATH      "../data"
+  #SYMBOLSET      "../symbols/symbols35.sym"
+  #FONTSET        "../fonts/fonts.list"
+
+  PROJECTION
+    "init=epsg:4326"
+  END
+
+  WEB
+    METADATA
+      "wms_title"           "test S3 perfs"
+      #"wms_onlineresource" "http://my.host.com/cgi-bin/mapserv?map=wms.map&"
+      "wms_srs"             "EPSG:4326"
+      "wms_enable_request"  "*"
+    END
+  END
+
+  LAYER
+    NAME         NE1_HR_LC_SR_W_DR_cloud
+    DATA         "/vsicurl/http://data/NE1_HR_LC_SR_W_DR_cloud.tif"
+    TYPE         RASTER
+
+    PROJECTION
+      "init=epsg:4326"
+    END
+  END
+END
