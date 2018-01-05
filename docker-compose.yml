@@ -27,7 +27,7 @@ services:
 
   mapserver:
     image: camptocamp/mapserver:7.0
-    environment:
+    #environment:
       #MS_DEBUGLEVEL: 5
     volumes:
       - ./mapserver:/etc/mapserver:ro
@@ -35,3 +35,12 @@ services:
       - data
     ports:
       - 8280:80
+
+  geoserver:
+    image: camptocamp/geoserver:2.13
+    volumes:
+      - ./geoserver:/usr/local/tomcat/webapps/ROOT/data
+    links:
+      - data
+    ports:
+      - 8380:8080
